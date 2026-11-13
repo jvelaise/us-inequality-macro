@@ -1,0 +1,15 @@
+{
+  "series": "GINIALLRF (Census, families)",
+  "first_year": 1947,
+  "first_value": 37.6,
+  "last_year": 2025,
+  "last_value": 46.0,
+  "low_year": 1968,
+  "low_value": 34.8,
+  "rise_since_low": 11.2,
+  "rise_total": 8.4,
+  "trend_before_low_per_decade": -0.96,
+  "trend_after_low_per_decade": 2.19,
+  "largest_jump_year": 1993,
+  "largest_jump": 2.5
+}
