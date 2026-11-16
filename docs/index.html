@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rising Income Inequality in the US</title>
+<meta name="description" content="What 78 years of data show, and what they can&#x27;t tell us">
+<style>
+:root{color-scheme:light;--page:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;
+--grid:#e1e0d9;--axis:#c3c2b7;--series:#2a78d6;--ring:rgba(11,11,11,.10);--warn-bg:#fff4d6;--warn-ink:#5c4300}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--page:#0d0d0d;--surface:#1a1a19;
+--ink:#f0efec;--ink2:#c3c2b7;--muted:#898781;--grid:#2c2c2a;--axis:#383835;--series:#3987e5;--ring:rgba(255,255,255,.10);
+--warn-bg:#3a2e0c;--warn-ink:#f7dd9a}}
+:root[data-theme="dark"]{color-scheme:dark;--page:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--muted:#898781;
+--grid:#2c2c2a;--axis:#383835;--series:#3987e5;--ring:rgba(255,255,255,.10);--warn-bg:#3a2e0c;--warn-ink:#f7dd9a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:780px;margin:0 auto;padding:32px 16px 64px}
+header h1{font-size:2rem;line-height:1.2;margin:0 0 6px}
+header p{color:var(--ink2);margin:0 0 24px;font-size:1.1rem}
+h2{font-size:1.35rem;line-height:1.3;margin:48px 0 8px}
+h3{font-size:.85rem;font-weight:600;color:var(--ink2);margin:0 0 4px}
+p,li{color:var(--ink)} ul,ol{padding-left:1.3em} li{margin:6px 0}
+a{color:var(--series)}
+.draft{background:var(--warn-bg);color:var(--warn-ink);padding:10px 14px;border-radius:8px;margin-bottom:24px;font-size:.9rem}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 8px}
+.tile{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:14px}
+.tile-v{font-size:2rem;font-weight:650;line-height:1.1}
+.tile-l{color:var(--ink2);font-size:.85rem;margin-top:4px}
+figure{margin:20px 0 8px;background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:16px}
+figcaption{color:var(--ink2);font-size:.8rem;margin-top:8px}
+.chart{position:relative;height:300px;touch-action:pan-y}
+.chart.small{height:200px}
+.multiples{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+svg text{fill:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
+svg .lbl{fill:var(--ink);font-size:12px}
+.gridline{stroke:var(--grid);stroke-width:1}
+.axis{stroke:var(--axis);stroke-width:1}
+.zero{stroke:var(--ink2);stroke-width:1}
+.line{fill:none;stroke:var(--series);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.band{fill:var(--series);opacity:.18}
+.dot{fill:var(--series);stroke:var(--surface);stroke-width:2}
+.cross{stroke:var(--ink2);stroke-width:1;stroke-dasharray:3 3}
+.tip{position:absolute;pointer-events:none;background:var(--surface);color:var(--ink);border:1px solid var(--ring);
+box-shadow:0 2px 8px rgba(0,0,0,.12);border-radius:6px;padding:6px 8px;font-size:.8rem;line-height:1.35;white-space:nowrap;display:none;z-index:2}
+.tip b{font-variant-numeric:tabular-nums}
+.bars{display:grid;gap:14px}
+.bar-label{font-size:.9rem;color:var(--ink2);margin-bottom:4px}
+.bar-track{display:flex;align-items:center;gap:8px}
+.bar{height:22px;min-width:4px;background:var(--series);border-radius:0 4px 4px 0}
+.bar-v{font-size:.9rem;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+details{margin-top:10px;font-size:.85rem} summary{cursor:pointer;color:var(--ink2)}
+details table{border-collapse:collapse;margin-top:8px;width:100%;font-variant-numeric:tabular-nums}
+details div.scroll{max-height:320px;overflow:auto}
+th,td{text-align:left;padding:3px 8px;border-bottom:1px solid var(--grid)}
+.links{font-size:.95rem}
+footer{color:var(--muted);font-size:.8rem;margin-top:48px}
+@media (max-width:640px){.tiles{grid-template-columns:1fr}.multiples{grid-template-columns:1fr}
+header h1{font-size:1.6rem}.chart{height:240px}}
+</style></head>
+<body><main>
+<div class="draft" role="note"><strong>DRAFT</strong> &mdash; text not yet reviewed. Set <code>status: approved</code> in site/content.md once every claim is checked.</div>
+<header><h1>Rising Income Inequality in the US</h1><p>What 78 years of data show, and what they can&#x27;t tell us</p></header>
+<div class="tiles">
+  <div class="tile"><div class="tile-v">46.0</div><div class="tile-l">Gini index for US families, 2025</div></div>
+  <div class="tile"><div class="tile-v">+11.2</div><div class="tile-l">points since the 1968 low</div></div>
+  <div class="tile"><div class="tile-v">~2%</div><div class="tile-l">of the rise matched by the largest business-cycle effect</div></div>
+</div>
+<section id="intro"><h2>The short version</h2><p>US family incomes are close to the most unequal they have been since records began in 1947. The <strong>Gini index</strong>, the standard yardstick of income inequality, rose from <strong>34.8</strong> in 1968 to <strong>46.0</strong> in 2025.</p>
+<p>This site asks a narrower question we can actually test with data: <strong>do the ups and downs of the economy (growth, inflation, government deficits) push inequality up or down?</strong> They do, a little. But those effects are small next to the long rise, so the main explanation has to lie elsewhere.</p></section>
+<section id="rise"><h2>Inequality bottomed out in 1968 and has climbed since</h2><p>From 1947 to 1968, inequality drifted <em>down</em> by about 1.0 points per decade. Since then it has risen by about <strong>2.2 points per decade</strong>, adding 11.2 points in total. Every decade since the 1970s has averaged higher than the one before.</p>
+<p><strong>How to read the Gini index:</strong> 0 would mean every family has the same income; 100 would mean one family has all of it. Here a change of 1 point is meaningful.</p>
+<p><strong>One jump is partly measurement.</strong> The single biggest one-year increase (+2.5 points in 1993) coincides with a change in how the Census Bureau collected income data, which by itself raised measured inequality. The long upward trend is clear with or without that year.</p><figure><div class="chart" id="chart-gini" role="img"
+  aria-label="Line chart of the US family Gini index, 1947 to 2025"></div>
+  <figcaption>Gini index for US families (0&ndash;100; higher = more unequal). Source: US Census Bureau via FRED (GINIALLRF).</figcaption>
+  <details><summary>Show data table</summary><div class="scroll"><table><thead><tr><th>Year</th><th>Gini (0–100)</th></tr></thead><tbody><tr><td>1947</td><td>37.6</td></tr><tr><td>1948</td><td>37.1</td></tr><tr><td>1949</td><td>37.8</td></tr><tr><td>1950</td><td>37.9</td></tr><tr><td>1951</td><td>36.3</td></tr><tr><td>1952</td><td>36.8</td></tr><tr><td>1953</td><td>35.9</td></tr><tr><td>1954</td><td>37.1</td></tr><tr><td>1955</td><td>36.3</td></tr><tr><td>1956</td><td>35.8</td></tr><tr><td>1957</td><td>35.1</td></tr><tr><td>1958</td><td>35.4</td></tr><tr><td>1959</td><td>36.1</td></tr><tr><td>1960</td><td>36.4</td></tr><tr><td>1961</td><td>37.4</td></tr><tr><td>1962</td><td>36.2</td></tr><tr><td>1963</td><td>36.2</td></tr><tr><td>1964</td><td>36.1</td></tr><tr><td>1965</td><td>35.6</td></tr><tr><td>1966</td><td>34.9</td></tr><tr><td>1967</td><td>35.8</td></tr><tr><td>1968</td><td>34.8</td></tr><tr><td>1969</td><td>34.9</td></tr><tr><td>1970</td><td>35.3</td></tr><tr><td>1971</td><td>35.5</td></tr><tr><td>1972</td><td>35.9</td></tr><tr><td>1973</td><td>35.6</td></tr><tr><td>1974</td><td>35.5</td></tr><tr><td>1975</td><td>35.7</td></tr><tr><td>1976</td><td>35.8</td></tr><tr><td>1977</td><td>36.3</td></tr><tr><td>1978</td><td>36.3</td></tr><tr><td>1979</td><td>36.5</td></tr><tr><td>1980</td><td>36.5</td></tr><tr><td>1981</td><td>36.9</td></tr><tr><td>1982</td><td>38.0</td></tr><tr><td>1983</td><td>38.2</td></tr><tr><td>1984</td><td>38.3</td></tr><tr><td>1985</td><td>38.9</td></tr><tr><td>1986</td><td>39.2</td></tr><tr><td>1987</td><td>39.3</td></tr><tr><td>1988</td><td>39.5</td></tr><tr><td>1989</td><td>40.1</td></tr><tr><td>1990</td><td>39.6</td></tr><tr><td>1991</td><td>39.7</td></tr><tr><td>1992</td><td>40.4</td></tr><tr><td>1993</td><td>42.9</td></tr><tr><td>1994</td><td>42.6</td></tr><tr><td>1995</td><td>42.1</td></tr><tr><td>1996</td><td>42.5</td></tr><tr><td>1997</td><td>42.9</td></tr><tr><td>1998</td><td>43.0</td></tr><tr><td>1999</td><td>42.9</td></tr><tr><td>2000</td><td>43.3</td></tr><tr><td>2001</td><td>43.5</td></tr><tr><td>2002</td><td>43.4</td></tr><tr><td>2003</td><td>43.6</td></tr><tr><td>2004</td><td>43.8</td></tr><tr><td>2005</td><td>44.0</td></tr><tr><td>2006</td><td>44.4</td></tr><tr><td>2007</td><td>43.2</td></tr><tr><td>2008</td><td>43.8</td></tr><tr><td>2009</td><td>44.3</td></tr><tr><td>2010</td><td>44.0</td></tr><tr><td>2011</td><td>45.0</td></tr><tr><td>2012</td><td>45.1</td></tr><tr><td>2013</td><td>45.5</td></tr><tr><td>2014</td><td>45.2</td></tr><tr><td>2015</td><td>44.8</td></tr><tr><td>2016</td><td>45.2</td></tr><tr><td>2017</td><td>45.8</td></tr><tr><td>2018</td><td>45.2</td></tr><tr><td>2019</td><td>45.4</td></tr><tr><td>2020</td><td>45.8</td></tr><tr><td>2021</td><td>46.2</td></tr><tr><td>2022</td><td>45.8</td></tr><tr><td>2023</td><td>45.2</td></tr><tr><td>2024</td><td>45.7</td></tr><tr><td>2025</td><td>46.0</td></tr></tbody></table></div></details></figure></section>
+<section id="cycle"><h2>Booms narrow inequality a little; inflation&#x27;s effect flips over time</h2><p>We tracked what happened to inequality in the eight years after a year when growth, inflation, or the federal budget balance was 1 percentage point higher than usual, comparing against what recent history would otherwise predict.</p>
+<ul>
+<li><strong>Faster growth narrows inequality for about four years.</strong> A year of 1 point faster growth goes with a Gini 0.13 points lower straight away, and 0.18 points lower after 3 years.</li>
+<li><strong>Inflation helps at first, then hurts.</strong> Higher inflation goes with <em>lower</em> inequality in the first couple of years, but from about year 4 it goes with <em>higher</em> inequality, peaking at +0.10 points after 5 years. Looking at a single year would make these two phases cancel out.</li>
+<li><strong>The federal deficit shows no reliable link</strong> at most horizons. The one large estimate, at 8 years, rests on the least data and shouldn't carry weight.</li>
+</ul>
+<p>Shaded bands show the range the true effect plausibly falls in (90% confidence). Where a band crosses zero, the data can't rule out "no effect".</p><figure><div class="multiples"><div><h3>Growth +1 pp</h3><div class="chart small" id="chart-lp-gdp" role="img" aria-label="Change in Gini over 8 years after: Growth +1 pp"></div></div><div><h3>Inflation +1 pp</h3><div class="chart small" id="chart-lp-inf" role="img" aria-label="Change in Gini over 8 years after: Inflation +1 pp"></div></div><div><h3>Budget balance +1 pp</h3><div class="chart small" id="chart-lp-fis" role="img" aria-label="Change in Gini over 8 years after: Budget balance +1 pp"></div></div></div>
+  <figcaption>Cumulative change in the Gini index (points) in the years after a 1 percentage point higher value of each variable. Line: estimate. Band: 90% confidence range. Responses are predictive, not proven causal effects.</figcaption>
+  <details><summary>Show data table</summary><div class="scroll"><table><thead><tr><th>Variable</th><th>Years after</th><th>Gini change</th><th>90% range</th><th>n</th></tr></thead><tbody><tr><td>Growth +1 pp</td><td>0</td><td>-0.127</td><td>[-0.187, -0.068]</td><td>76</td></tr><tr><td>Growth +1 pp</td><td>1</td><td>-0.106</td><td>[-0.172, -0.041]</td><td>75</td></tr><tr><td>Growth +1 pp</td><td>2</td><td>-0.127</td><td>[-0.193, -0.062]</td><td>74</td></tr><tr><td>Growth +1 pp</td><td>3</td><td>-0.181</td><td>[-0.247, -0.116]</td><td>73</td></tr><tr><td>Growth +1 pp</td><td>4</td><td>-0.100</td><td>[-0.163, -0.037]</td><td>72</td></tr><tr><td>Growth +1 pp</td><td>5</td><td>-0.082</td><td>[-0.198, +0.034]</td><td>71</td></tr><tr><td>Growth +1 pp</td><td>6</td><td>-0.075</td><td>[-0.172, +0.022]</td><td>70</td></tr><tr><td>Growth +1 pp</td><td>7</td><td>-0.133</td><td>[-0.242, -0.024]</td><td>69</td></tr><tr><td>Growth +1 pp</td><td>8</td><td>-0.058</td><td>[-0.186, +0.071]</td><td>68</td></tr><tr><td>Inflation +1 pp</td><td>0</td><td>-0.087</td><td>[-0.137, -0.037]</td><td>76</td></tr><tr><td>Inflation +1 pp</td><td>1</td><td>-0.050</td><td>[-0.119, +0.019]</td><td>75</td></tr><tr><td>Inflation +1 pp</td><td>2</td><td>-0.066</td><td>[-0.130, -0.002]</td><td>74</td></tr><tr><td>Inflation +1 pp</td><td>3</td><td>+0.028</td><td>[-0.047, +0.102]</td><td>73</td></tr><tr><td>Inflation +1 pp</td><td>4</td><td>+0.092</td><td>[+0.017, +0.167]</td><td>72</td></tr><tr><td>Inflation +1 pp</td><td>5</td><td>+0.105</td><td>[+0.031, +0.179]</td><td>71</td></tr><tr><td>Inflation +1 pp</td><td>6</td><td>+0.088</td><td>[+0.001, +0.175]</td><td>70</td></tr><tr><td>Inflation +1 pp</td><td>7</td><td>+0.006</td><td>[-0.072, +0.084]</td><td>69</td></tr><tr><td>Inflation +1 pp</td><td>8</td><td>+0.038</td><td>[-0.043, +0.119]</td><td>68</td></tr><tr><td>Budget balance +1 pp</td><td>0</td><td>-0.052</td><td>[-0.085, -0.020]</td><td>76</td></tr><tr><td>Budget balance +1 pp</td><td>1</td><td>-0.045</td><td>[-0.110, +0.020]</td><td>75</td></tr><tr><td>Budget balance +1 pp</td><td>2</td><td>-0.076</td><td>[-0.126, -0.026]</td><td>74</td></tr><tr><td>Budget balance +1 pp</td><td>3</td><td>-0.052</td><td>[-0.142, +0.039]</td><td>73</td></tr><tr><td>Budget balance +1 pp</td><td>4</td><td>-0.001</td><td>[-0.099, +0.096]</td><td>72</td></tr><tr><td>Budget balance +1 pp</td><td>5</td><td>+0.010</td><td>[-0.079, +0.099]</td><td>71</td></tr><tr><td>Budget balance +1 pp</td><td>6</td><td>-0.036</td><td>[-0.187, +0.114]</td><td>70</td></tr><tr><td>Budget balance +1 pp</td><td>7</td><td>-0.089</td><td>[-0.223, +0.044]</td><td>69</td></tr><tr><td>Budget balance +1 pp</td><td>8</td><td>-0.199</td><td>[-0.335, -0.064]</td><td>68</td></tr></tbody></table></div></details></figure></section>
+<section id="size"><h2>These effects are ripples on a rising tide</h2><p>The largest effect we found, 0.18 points from faster growth, is about <strong>2% of the 8.9-point rise</strong> in inequality over 1948–2025. The business cycle moves inequality around its trend; it does not explain the trend.</p><figure><div class="bars" id="chart-size"><div class="bar-row"><div class="bar-label">Rise in the Gini, 1948–2025</div><div class="bar-track"><div class="bar" style="width:100.00%"></div><span class="bar-v">8.90 points</span></div></div><div class="bar-row"><div class="bar-label">Largest effect of the business cycle (faster growth)</div><div class="bar-track"><div class="bar" style="width:2.02%"></div><span class="bar-v">0.18 points</span></div></div></div></figure></section>
+<section id="drivers"><h2>So what does explain the long rise?</h2><p><em>This section summarises published research. It is <strong>not</strong> tested by this site's data.</em></p>
+<ul>
+<li><strong>Technology and skills.</strong> Demand for highly educated workers has outpaced supply, raising their pay relative to everyone else (Goldin &amp; Katz, <em>The Race between Education and Technology</em>, 2008). Automation of routine tasks has also reduced wages for some groups (Acemoglu &amp; Restrepo, <em>Econometrica</em>, 2022).</li>
+<li><strong>Fewer unions.</strong> Union membership fell sharply after the 1970s, weakening a force that compressed wages (Western &amp; Rosenfeld, <em>American Sociological Review</em>, 2011).</li>
+<li><strong>Pulling away at the top.</strong> The share of income going to the top 1% has risen steeply since 1980, with changes in top tax rates and pay-setting as candidate causes (Piketty &amp; Saez, <em>Quarterly Journal of Economics</em>, 2003).</li>
+<li><strong>Trade and globalisation.</strong> Import competition, especially from China after 2000, cut manufacturing jobs and wages in exposed regions (Autor, Dorn &amp; Hanson, <em>American Economic Review</em>, 2013).</li>
+<li><strong>Who lives with whom.</strong> High earners increasingly marry each other, which widens gaps between families (Greenwood et al., <em>American Economic Review</em>, 2014).</li>
+</ul></section>
+<section id="caveats"><h2>What this analysis can and can&#x27;t tell us</h2><ul>
+<li><strong>Patterns, not proof.</strong> The results show what tends to follow a year of faster growth or higher inflation. They don't prove the economy <em>caused</em> the change: inequality could affect growth, or something else could drive both.</li>
+<li><strong>Families only.</strong> This Gini covers families and leaves out people living alone. The Census household measure (from 1967) runs a few points higher.</li>
+<li><strong>Limited data.</strong> Annual data give 78 years (1948–2025), and only 68 observations at the 8-year horizon, so the estimates are imprecise.</li>
+</ul></section>
+<section id="method"><h2>How this was made</h2><ol>
+<li>Five data series downloaded from FRED (Federal Reserve Bank of St. Louis): the Census family Gini index, real GDP growth, CPI inflation, the federal surplus/deficit as a share of GDP, and unemployment.</li>
+<li>Monthly series averaged to calendar years, using complete years only.</li>
+<li>Local-projection regressions (Jordà 2005): for each horizon of 0–8 years, the change in the Gini regressed on the macro variable, controlling for two years of history in every variable. Sample sizes run from 76 observations down to 68.</li>
+<li>Every number on this page is computed by code from the saved data. Text was drafted with AI assistance and reviewed by the author.</li>
+</ol><p class="links"><a href="inequality_macro_summary.pdf">Two-page technical summary (PDF)</a> &middot; <a href="https://github.com/jvelaise/us-inequality-macro">Code and data on GitHub</a> &middot; <a href="https://github.com/jvelaise/us-inequality-macro/blob/main/notebooks/gini_coefficient.ipynb">Gini notebook</a></p></section>
+<footer>Built by code/04_build_site.py from the data in this project's repository.</footer>
+</main>
+<script type="application/json" id="chart-data">{"gini":{"x":[1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"y":[37.6,37.1,37.8,37.9,36.3,36.8,35.9,37.1,36.3,35.8,35.1,35.4,36.1,36.4,37.4,36.2,36.2,36.1,35.6,34.9,35.8,34.8,34.9,35.3,35.5,35.9,35.6,35.5,35.7,35.8,36.3,36.3,36.5,36.5,36.9,38.0,38.2,38.3,38.9,39.2,39.3,39.5,40.1,39.6,39.7,40.4,42.9,42.6,42.1,42.5,42.9,43.0,42.9,43.3,43.5,43.4,43.6,43.8,44.0,44.4,43.2,43.8,44.3,44.0,45.0,45.1,45.5,45.2,44.8,45.2,45.8,45.2,45.4,45.8,46.2,45.8,45.2,45.7,46.0],"marks":[1947,1968,2025],"note_year":1993},"lp":{"gdp":{"horizon":[0,1,2,3,4,5,6,7,8],"beta":[-0.127,-0.106,-0.127,-0.182,-0.1,-0.082,-0.075,-0.133,-0.058],"lo90":[-0.187,-0.172,-0.193,-0.247,-0.163,-0.198,-0.172,-0.242,-0.186],"hi90":[-0.068,-0.041,-0.062,-0.116,-0.037,0.034,0.022,-0.024,0.071]},"inf":{"horizon":[0,1,2,3,4,5,6,7,8],"beta":[-0.087,-0.05,-0.066,0.028,0.092,0.105,0.088,0.006,0.038],"lo90":[-0.136,-0.119,-0.13,-0.047,0.017,0.031,0.001,-0.072,-0.043],"hi90":[-0.038,0.02,-0.002,0.102,0.167,0.18,0.175,0.084,0.119]},"fis":{"horizon":[0,1,2,3,4,5,6,7,8],"beta":[-0.052,-0.045,-0.076,-0.052,-0.001,0.01,-0.036,-0.089,-0.199],"lo90":[-0.085,-0.11,-0.126,-0.142,-0.099,-0.079,-0.187,-0.223,-0.335],"hi90":[-0.02,0.02,-0.026,0.039,0.096,0.098,0.114,0.044,-0.064]}},"size":[{"label":"Rise in the Gini, 1948\u20132025","value":8.9},{"label":"Largest effect of the business cycle (faster growth)","value":0.18}]}</script>
+<script>
+(function(){
+const D = JSON.parse(document.getElementById('chart-data').textContent);
+const NS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs, parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+function lin(d0,d1,r0,r1){return v=>r0+(v-d0)/(d1-d0)*(r1-r0);}
+function niceTicks(lo,hi,n){const raw=(hi-lo)/n,p=Math.pow(10,Math.floor(Math.log10(raw)));
+  const step=[1,2,2.5,5,10].map(m=>m*p).find(s=>s>=raw);const t=[];for(let v=Math.ceil(lo/step)*step;v<=hi+1e-9;v+=step)t.push(+v.toFixed(6));return t;}
+
+function lineChart(host, o){
+  host.innerHTML='';
+  const W=host.clientWidth, H=host.clientHeight, m={t:14,r:o.padR||14,b:26,l:38};
+  const svg=el('svg',{width:W,height:H,viewBox:`0 0 ${W} ${H}`},host);
+  const x=lin(o.xDomain[0],o.xDomain[1],m.l,W-m.r), y=lin(o.yDomain[0],o.yDomain[1],H-m.b,m.t);
+  niceTicks(o.yDomain[0],o.yDomain[1],o.yTicks||4).forEach(v=>{
+    if(v<o.yDomain[0]||v>o.yDomain[1])return;
+    el('line',{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),class:'gridline'},svg);
+    el('text',{x:m.l-6,y:y(v)+4,'text-anchor':'end'},svg).textContent=o.yFmt(v);});
+  el('line',{x1:m.l,x2:W-m.r,y1:H-m.b,y2:H-m.b,class:'axis'},svg);
+  o.xTicks.forEach(v=>{el('text',{x:x(v),y:H-m.b+16,'text-anchor':'middle'},svg).textContent=v;});
+  if(o.zero) el('line',{x1:m.l,x2:W-m.r,y1:y(0),y2:y(0),class:'zero'},svg);
+  const X=o.x;
+  if(o.lo){let d='M'+X.map((v,i)=>x(v)+','+y(o.hi[i])).join('L')+'L'+X.slice().reverse().map((v,j)=>x(v)+','+y(o.lo[X.length-1-j])).join('L')+'Z';el('path',{d,class:'band'},svg);}
+  el('path',{d:'M'+X.map((v,i)=>x(v)+','+y(o.y[i])).join('L'),class:'line'},svg);
+  (o.marks||[]).forEach(mk=>{const i=X.indexOf(mk.x);el('circle',{cx:x(mk.x),cy:y(o.y[i]),r:4.5,class:'dot'},svg);
+    const t=el('text',{x:x(mk.x)+(mk.dx||0),y:y(o.y[i])+(mk.dy||-10),'text-anchor':mk.anchor||'middle',class:'lbl'},svg);t.textContent=mk.text;});
+  if(o.dots) X.forEach((v,i)=>el('circle',{cx:x(v),cy:y(o.y[i]),r:3,class:'dot'},svg));
+  // hover layer
+  const tip=document.createElement('div');tip.className='tip';host.appendChild(tip);
+  const cross=el('line',{y1:m.t,y2:H-m.b,class:'cross',visibility:'hidden'},svg);
+  const hd=el('circle',{r:5,class:'dot',visibility:'hidden'},svg);
+  const hit=el('rect',{x:m.l,y:0,width:W-m.l-m.r,height:H,fill:'transparent'},svg);
+  function move(ev){const r=svg.getBoundingClientRect(),px=ev.clientX-r.left;
+    let i=0,best=1e9;X.forEach((v,j)=>{const d=Math.abs(x(v)-px);if(d<best){best=d;i=j;}});
+    cross.setAttribute('x1',x(X[i]));cross.setAttribute('x2',x(X[i]));cross.setAttribute('visibility','visible');
+    hd.setAttribute('cx',x(X[i]));hd.setAttribute('cy',y(o.y[i]));hd.setAttribute('visibility','visible');
+    tip.innerHTML=o.tip(i);tip.style.display='block';
+    const tw=tip.offsetWidth;let left=x(X[i])+10;if(left+tw>W)left=x(X[i])-tw-10;
+    tip.style.left=Math.max(0,left)+'px';tip.style.top=m.t+'px';}
+  function leave(){tip.style.display='none';cross.setAttribute('visibility','hidden');hd.setAttribute('visibility','hidden');}
+  hit.addEventListener('pointermove',move);hit.addEventListener('pointerdown',move);hit.addEventListener('pointerleave',leave);
+}
+
+function drawAll(){
+  const g=D.gini, gx=g.x, gy=g.y, val=yr=>gy[gx.indexOf(yr)];
+  const lo=Math.floor(Math.min(...gy))-1, hi=Math.ceil(Math.max(...gy))+1;
+  const [m0,m1,m2]=g.marks, narrow=document.getElementById('chart-gini').clientWidth<480;
+  lineChart(document.getElementById('chart-gini'),{x:gx,y:gy,xDomain:[gx[0],gx[gx.length-1]],yDomain:[lo,hi],padR:18,
+    xTicks:gx.filter(v=>v%(narrow?20:10)===0),yFmt:v=>v,
+    marks:[{x:m0,text:`${m0}: ${val(m0).toFixed(1)}`,anchor:'start',dx:4,dy:-10},
+           {x:m1,text:`Low, ${m1}: ${val(m1).toFixed(1)}`,dy:20},
+           {x:m2,text:`${m2}: ${val(m2).toFixed(1)}`,anchor:'end',dy:-12}],
+    tip:i=>`${gx[i]}<br>Gini <b>${gy[i].toFixed(1)}</b>`+(gx[i]===g.note_year?'<br>Census survey change this year':'')});
+  const all=[];Object.values(D.lp).forEach(s=>all.push(...s.lo90,...s.hi90));
+  const pad=0.03,ylo=Math.min(...all)-pad,yhi=Math.max(...all)+pad;
+  for(const k in D.lp){const s=D.lp[k];
+    lineChart(document.getElementById('chart-lp-'+k),{x:s.horizon,y:s.beta,lo:s.lo90,hi:s.hi90,zero:true,dots:true,
+      xDomain:[0,8],yDomain:[ylo,yhi],xTicks:[0,2,4,6,8],yFmt:v=>(v>0?'+':'')+v.toFixed(1),yTicks:4,
+      tip:i=>`${s.horizon[i]} yr after<br>Gini <b>${s.beta[i]>0?'+':''}${s.beta[i].toFixed(2)}</b> pts<br>range ${s.lo90[i].toFixed(2)} to ${s.hi90[i].toFixed(2)}`});}
+}
+drawAll();
+let t;new ResizeObserver(()=>{clearTimeout(t);t=setTimeout(drawAll,80);}).observe(document.querySelector('main'));
+})();
+</script>
+</body></html>
